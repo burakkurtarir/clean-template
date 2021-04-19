@@ -3,7 +3,10 @@ abstract class IResponseModel<T> {
   IErrorModel? error;
 }
 
-abstract class IErrorModel<T> {}
+abstract class IErrorModel<T> {
+  // int? statusCode;
+  // String? description;
+}
 
 class ResponseModel<T> extends IResponseModel<T> {
   @override
