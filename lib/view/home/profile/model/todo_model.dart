@@ -1,10 +1,10 @@
-import 'package:clean_template/core/base/model/base_model.dart';
+import 'package:clean_template/core/init/network/interface/INetworkModel.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'todo_model.g.dart';
 
 @JsonSerializable()
-class TodoModel extends BaseModel<TodoModel> {
+class TodoModel extends INetworkModel<TodoModel> {
   int? userId;
   int? id;
   String? title;

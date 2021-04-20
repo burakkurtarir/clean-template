@@ -1,4 +1,4 @@
-import 'package:clean_template/core/init/network/IResponseModel.dart';
+import '../../init/network/interface/IErrorModel.dart';
 
 class BaseErrorModel extends IErrorModel {
   final String message;

@@ -9,50 +9,73 @@ part of 'profile_view_model.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$ProfileViewModel on _ProfileViewModelBase, Store {
-  final _$countAtom = Atom(name: '_ProfileViewModelBase.count');
+  final _$todoListAtom = Atom(name: '_ProfileViewModelBase.todoList');
 
   @override
-  int get count {
-    _$countAtom.reportRead();
-    return super.count;
+  ObservableList<TodoModel> get todoList {
+    _$todoListAtom.reportRead();
+    return super.todoList;
   }
 
   @override
-  set count(int value) {
-    _$countAtom.reportWrite(value, super.count, () {
-      super.count = value;
+  set todoList(ObservableList<TodoModel> value) {
+    _$todoListAtom.reportWrite(value, super.todoList, () {
+      super.todoList = value;
     });
   }
 
-  final _$_ProfileViewModelBaseActionController =
-      ActionController(name: '_ProfileViewModelBase');
+  final _$isLoadingAtom = Atom(name: '_ProfileViewModelBase.isLoading');
 
   @override
-  void increase() {
-    final _$actionInfo = _$_ProfileViewModelBaseActionController.startAction(
-        name: '_ProfileViewModelBase.increase');
-    try {
-      return super.increase();
-    } finally {
-      _$_ProfileViewModelBaseActionController.endAction(_$actionInfo);
-    }
+  bool get isLoading {
+    _$isLoadingAtom.reportRead();
+    return super.isLoading;
   }
 
   @override
-  void decrease() {
-    final _$actionInfo = _$_ProfileViewModelBaseActionController.startAction(
-        name: '_ProfileViewModelBase.decrease');
-    try {
-      return super.decrease();
-    } finally {
-      _$_ProfileViewModelBaseActionController.endAction(_$actionInfo);
-    }
+  set isLoading(bool value) {
+    _$isLoadingAtom.reportWrite(value, super.isLoading, () {
+      super.isLoading = value;
+    });
+  }
+
+  final _$todoStateAtom = Atom(name: '_ProfileViewModelBase.todoState');
+
+  @override
+  TodoState? get todoState {
+    _$todoStateAtom.reportRead();
+    return super.todoState;
+  }
+
+  @override
+  set todoState(TodoState? value) {
+    _$todoStateAtom.reportWrite(value, super.todoState, () {
+      super.todoState = value;
+    });
+  }
+
+  final _$clearTodosAsyncAction =
+      AsyncAction('_ProfileViewModelBase.clearTodos');
+
+  @override
+  Future<void> clearTodos() {
+    return _$clearTodosAsyncAction.run(() => super.clearTodos());
+  }
+
+  final _$fetchTodosAsyncAction =
+      AsyncAction('_ProfileViewModelBase.fetchTodos');
+
+  @override
+  Future<void> fetchTodos() {
+    return _$fetchTodosAsyncAction.run(() => super.fetchTodos());
   }
 
   @override
   String toString() {
     return '''
-count: ${count}
+todoList: ${todoList},
+isLoading: ${isLoading},
+todoState: ${todoState}
     ''';
   }
 }
