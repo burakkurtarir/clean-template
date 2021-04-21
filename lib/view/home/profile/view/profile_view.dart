@@ -1,4 +1,6 @@
 import 'package:clean_template/core/base/view/base_view.dart';
+import 'package:clean_template/core/init/network/network_manager.dart';
+import 'package:clean_template/view/home/profile/service/profile_service.dart';
 import 'package:clean_template/view/home/profile/viewmodel/profile_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -8,14 +10,12 @@ class ProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('Build 1');
     return BaseView<ProfileViewModel>(
       onReady: (value) {
         value.setContext(context);
         value.init();
       },
       builder: (BuildContext context, value) {
-        print('Build 2');
         return Scaffold(
           appBar: AppBar(
             title: Text('Profile'),
@@ -32,12 +32,26 @@ class ProfileView extends StatelessWidget {
                   value.clearTodos();
                 },
               ),
+              IconButton(
+                icon: Icon(Icons.navigate_next),
+                onPressed: () {
+                  value.navigateToExplore();
+                },
+              ),
             ],
           ),
           body: buildListView(value),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              value.changeTheme();
+            },
+            child: Icon(Icons.update),
+          ),
         );
       },
-      viewModel: ProfileViewModel(),
+      viewModel: ProfileViewModel(
+        ProfileService(coreDio: NetworkManager.instance!.coreDio),
+      ),
     );
   }
 

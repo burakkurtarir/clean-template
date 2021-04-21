@@ -1,15 +1,18 @@
 import 'dart:io';
 
-import 'package:clean_template/core/constants/enums/http_request_enum.dart';
-import 'package:clean_template/core/extensions/network_extension.dart';
-import 'package:clean_template/core/init/network/ICoreDio.dart';
-import 'package:clean_template/core/init/network/interface/INetworkModel.dart';
-import 'package:clean_template/core/init/network/interface/IResponseModel.dart';
-import 'package:clean_template/core/init/network/model/empty_model.dart';
-import 'package:clean_template/core/init/network/model/error_model.dart';
-import 'package:clean_template/core/init/network/model/response_model.dart';
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
+
+import '../../../product/enums/network_route.dart';
+import '../../../product/extensions/network_route_extension.dart';
+import '../../constants/enums/http_types.dart';
+import '../../extensions/http_types_extension.dart';
+import 'ICoreDio.dart';
+import 'interface/INetworkModel.dart';
+import 'interface/IResponseModel.dart';
+import 'model/empty_model.dart';
+import 'model/error_model.dart';
+import 'model/response_model.dart';
 
 part './core_operations.dart';
 
@@ -28,16 +31,16 @@ class CoreDio with DioMixin implements Dio, ICoreDio {
 
   @override
   Future<IResponseModel<R>> send<R, T extends INetworkModel>(
-      {required String path,
+      {required NetworkRoute path,
       required HttpTypes type,
       required T parseModel,
       dynamic data,
-      Map<String, Object>? queryParameters,
+      Map<String, dynamic>? queryParameters,
       Map<String, dynamic>? headers,
       void Function(int p1, int p2)? onReceiveProgress}) async {
     try {
       final response = await request(
-        path,
+        path.rawValue,
         data: data,
         options: Options(method: type.rawValue, headers: headers),
       );

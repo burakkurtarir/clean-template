@@ -1,0 +1,4 @@
+enum NetworkRoute {
+  BASEURL,
+  TODOS,
+}

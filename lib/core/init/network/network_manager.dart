@@ -9,7 +9,7 @@ class NetworkManager {
     return _instance;
   }
 
-  ICoreDio? coreDio;
+  late ICoreDio coreDio;
 
   NetworkManager._init() {
     final baseOptions = BaseOptions(

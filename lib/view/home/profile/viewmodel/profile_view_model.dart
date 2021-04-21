@@ -1,25 +1,40 @@
-import 'package:clean_template/core/init/network/interface/IResponseModel.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:mobx/mobx.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../core/base/viewmodel/base_view_model.dart';
-import '../../../../core/constants/enums/http_request_enum.dart';
-import '../../../../core/init/network/model/error_model.dart';
+import '../../../../core/constants/enums/app_themes.dart';
+import '../../../../core/constants/navigation/navigation_constants.dart';
+import '../../../../core/init/notifier/theme_notifier.dart';
 import '../model/todo_model.dart';
+import '../service/IProfileService.dart';
 
 part 'profile_view_model.g.dart';
 
 class ProfileViewModel = _ProfileViewModelBase with _$ProfileViewModel;
 
 abstract class _ProfileViewModelBase with BaseViewModel, Store {
-  @override
-  void init() {
+  IProfileService profileService;
+
+  _ProfileViewModelBase(this.profileService) {
     fetchTodos();
   }
 
   @override
+  void init() {}
+
+  @override
   void setContext(BuildContext context) {
     this.context = context;
+  }
+
+  void navigateToExplore() {
+    navigation.navigate(NavigationConstants.EXPLORE_VIEW);
+  }
+
+  void changeTheme() {
+    Provider.of<ThemeNotifier>(context!, listen: false)
+        .changeValue(AppThemes.DARK);
   }
 
   @observable
@@ -42,40 +57,13 @@ abstract class _ProfileViewModelBase with BaseViewModel, Store {
   @action
   Future<void> fetchTodos() async {
     todoState = TodoLoadingState();
-    final response = await coreDio!.send<List<TodoModel>, TodoModel>(
-      path: 'todoss',
-      type: HttpTypes.GET,
-      parseModel: TodoModel(),
-    );
-    if (response.data is List<TodoModel>) {
-      print('Success');
-      todoState = TodoDoneState(response.data);
+    final response = await profileService.fetchTodos();
+    if (response != null) {
+      todoList = response.asObservable();
+      todoState = TodoDoneState(response);
     } else {
-      print('Error');
-      todoState = TodoErrorState(response.error!.description);
+      todoState = TodoErrorState('Bir hata oluştu');
     }
-    // final baseOptions = BaseOptions(
-    //   baseUrl: 'https://jsonplaceholder.typicode.com/',
-    //   method: 'GET',
-    // );
-    // final dio = Dio(baseOptions);
-    // dio.interceptors.add(InterceptorsWrapper(onError: (d, e) {
-    //   print('Boom');
-    //   print(d.message);
-    // }));
-    // // dio.httpClientAdapter = DefaultHttpClientAdapter();
-    // final response = await dio.request('todos/2');
-
-    // if (response.data is List) {
-    //   print('list');
-    //   final myData = response.data.map((e) => TodoModel().fromJson(e)).toList();
-    //   print(myData[0].title);
-    // } else if (response.data is Map) {
-    //   final myData = TodoModel().fromJson(response.data);
-    //   print(myData.title);
-    // } else {
-    //   print('Error');
-    // }
   }
 }
 
