@@ -43,7 +43,7 @@ class ProfileView extends StatelessWidget {
           body: buildListView(value),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-              value.changeTheme();
+              value.changeThemeRandomly();
             },
             child: Icon(Icons.update),
           ),

@@ -32,9 +32,8 @@ abstract class _ProfileViewModelBase with BaseViewModel, Store {
     navigation.navigate(NavigationConstants.EXPLORE_VIEW);
   }
 
-  void changeTheme() {
-    Provider.of<ThemeNotifier>(context!, listen: false)
-        .changeValue(AppThemes.DARK);
+  void changeThemeRandomly() {
+    Provider.of<ThemeNotifier>(context!, listen: false).changeThemeRandomly();
   }
 
   @observable
