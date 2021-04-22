@@ -1,8 +1,8 @@
-import 'package:clean_template/core/constants/enums/http_types.dart';
-import 'package:clean_template/core/init/network/ICoreDio.dart';
-import 'package:clean_template/product/enums/network_route.dart';
-import 'package:clean_template/view/home/explore/model/todo_model.dart';
-import 'package:clean_template/view/home/explore/service/IExploreService.dart';
+import '../../../../core/constants/enums/http_types.dart';
+import '../../../../core/init/network/ICoreDio.dart';
+import '../../../../product/enums/network_route.dart';
+import '../model/todo_model.dart';
+import 'IExploreService.dart';
 
 class ExploreService extends IExploreService {
   ExploreService({required ICoreDio coreDio}) : super(coreDio: coreDio);

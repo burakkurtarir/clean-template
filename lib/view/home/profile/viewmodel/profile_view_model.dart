@@ -3,7 +3,6 @@ import 'package:mobx/mobx.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../core/base/viewmodel/base_view_model.dart';
-import '../../../../core/constants/enums/app_themes.dart';
 import '../../../../core/constants/navigation/navigation_constants.dart';
 import '../../../../core/init/notifier/theme_notifier.dart';
 import '../model/todo_model.dart';
@@ -32,8 +31,8 @@ abstract class _ProfileViewModelBase with BaseViewModel, Store {
     navigation.navigate(NavigationConstants.EXPLORE_VIEW);
   }
 
-  void changeThemeRandomly() {
-    Provider.of<ThemeNotifier>(context!, listen: false).changeThemeRandomly();
+  void toggleTheme() {
+    Provider.of<ThemeNotifier>(context!, listen: false).toggleTheme();
   }
 
   @observable

@@ -1,6 +1,6 @@
-import 'package:clean_template/core/base/viewmodel/base_view_model.dart';
-import 'package:clean_template/view/home/explore/model/todo_model.dart';
-import 'package:clean_template/view/home/explore/service/IExploreService.dart';
+import '../../../../../core/base/viewmodel/base_view_model.dart';
+import '../../model/todo_model.dart';
+import '../../service/IExploreService.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

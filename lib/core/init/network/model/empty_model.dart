@@ -1,4 +1,4 @@
-import 'package:clean_template/core/init/network/interface/INetworkModel.dart';
+import '../interface/INetworkModel.dart';
 
 class EmptyModel extends INetworkModel<EmptyModel> {
   String? name;

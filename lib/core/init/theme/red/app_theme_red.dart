@@ -25,6 +25,9 @@ class AppThemeRed extends AppTheme {
           800: Color(0xff66000a),
           900: Color(0xff330005)
         }),
+        appBarTheme: AppBarTheme(
+          backgroundColor: Color(0xffd5342e),
+        ),
         brightness: Brightness.light,
         primaryColor: Color(0xffff4d5f),
         primaryColorBrightness: Brightness.dark,
@@ -255,10 +258,8 @@ class AppThemeRed extends AppTheme {
           opacity: 1,
           size: 24,
         ),
-        accentIconTheme: IconThemeData(
-          color: Color(0xffffffff),
-          opacity: 1,
-          size: 24,
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          backgroundColor: Color(0xffffffff),
         ),
         sliderTheme: SliderThemeData(
           activeTrackColor: null,

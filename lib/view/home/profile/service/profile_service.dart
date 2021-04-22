@@ -1,8 +1,8 @@
-import 'package:clean_template/core/constants/enums/http_types.dart';
-import 'package:clean_template/core/init/network/ICoreDio.dart';
-import 'package:clean_template/product/enums/network_route.dart';
-import 'package:clean_template/view/home/profile/model/todo_model.dart';
-import 'package:clean_template/view/home/profile/service/IProfileService.dart';
+import '../../../../core/constants/enums/http_types.dart';
+import '../../../../core/init/network/ICoreDio.dart';
+import '../../../../product/enums/network_route.dart';
+import '../model/todo_model.dart';
+import 'IProfileService.dart';
 
 class ProfileService extends IProfileService {
   ProfileService({required ICoreDio coreDio}) : super(coreDio: coreDio);

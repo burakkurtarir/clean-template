@@ -1,6 +1,6 @@
-import 'package:clean_template/core/constants/enums/http_types.dart';
-import 'package:clean_template/core/init/network/interface/INetworkModel.dart';
-import 'package:clean_template/product/enums/network_route.dart';
+import '../../constants/enums/http_types.dart';
+import 'interface/INetworkModel.dart';
+import '../../../product/enums/network_route.dart';
 
 import 'interface/IResponseModel.dart';
 

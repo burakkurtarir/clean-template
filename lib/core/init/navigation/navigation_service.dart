@@ -1,4 +1,4 @@
-import 'package:clean_template/core/init/navigation/INavigationService.dart';
+import 'INavigationService.dart';
 import 'package:flutter/cupertino.dart';
 
 class NavigationService implements INavigationService {

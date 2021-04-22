@@ -1,0 +1,11 @@
+{
+    "welcome": "Clean Template' e hoşgeldiniz",
+    "home": {
+        "profile": {
+            "title": "Profil"
+        },
+        "explore": {
+            "title": "Keşfet"
+        }
+    }
+}

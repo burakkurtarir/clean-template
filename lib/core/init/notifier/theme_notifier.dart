@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 
@@ -10,6 +9,8 @@ import '../theme/red/app_theme_red.dart';
 class ThemeNotifier extends ChangeNotifier {
   ThemeData _currentTheme = AppThemeLight.instance!.theme;
   ThemeData get currentTheme => _currentTheme;
+
+  bool get isDark => _currentTheme == AppThemeDark.instance!.theme;
 
   void changeValue(AppThemes theme) {
     switch (theme) {
@@ -28,20 +29,12 @@ class ThemeNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
-  void changeThemeRandomly() {
-    final random = Random().nextInt(2);
-    switch (random) {
-      case 0:
-        _currentTheme = AppThemeLight.instance!.theme;
-        break;
-      case 1:
-        _currentTheme = AppThemeDark.instance!.theme;
-        break;
-      case 2:
-        _currentTheme = AppThemeRed.instance!.theme;
-        break;
-      default:
-        _currentTheme = AppThemeLight.instance!.theme;
+  void toggleTheme() {
+    if (isDark) {
+      _currentTheme = AppThemeLight.instance!.theme;
+    } else {
+      _currentTheme = AppThemeDark.instance!.theme;
     }
+    notifyListeners();
   }
 }

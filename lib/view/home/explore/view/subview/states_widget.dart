@@ -1,4 +1,4 @@
-import 'package:clean_template/view/home/explore/viewmodel/cubit/explore_cubit.dart';
+import '../../viewmodel/cubit/explore_cubit.dart';
 import 'package:flutter/material.dart';
 
 extension ExploreCompletedWidget on ExploreCompletedState {

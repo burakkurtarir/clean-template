@@ -1,10 +1,10 @@
-import 'package:clean_template/core/base/view/base_view.dart';
-import 'package:clean_template/core/init/network/network_manager.dart';
-import 'package:clean_template/view/home/explore/service/explore_service.dart';
-import 'package:clean_template/view/home/explore/viewmodel/cubit/explore_cubit.dart';
+import '../../../../core/base/view/base_view.dart';
+import '../../../../core/init/network/network_manager.dart';
+import '../service/explore_service.dart';
+import '../viewmodel/cubit/explore_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import './subview/states_widget.dart';
+import 'subview/states_widget.dart';
 
 class ExploreView extends StatelessWidget {
   const ExploreView({Key? key}) : super(key: key);
@@ -55,3 +55,49 @@ class ExploreView extends StatelessWidget {
     return Container();
   }
 }
+
+/* 
+Column(
+          children: [
+            Card(
+              margin: EdgeInsets.all(20),
+              child: Padding(
+                padding: EdgeInsets.all(20),
+                child: Text(
+                  'Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.',
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(padding: EdgeInsets.all(20)),
+              child: Text(
+                'Donate Now!',
+                style: TextStyle(fontSize: 20),
+              ),
+            ),
+            SizedBox(height: 20),
+            TextButton(
+              onPressed: () {},
+              child: Text(
+                'Donate Now!',
+                style: TextStyle(fontSize: 20),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(20),
+              child: TextFormField(
+                decoration: InputDecoration(hintText: 'Donate Now!'),
+              ),
+            ),
+            NumberPicker(
+              axis: Axis.horizontal,
+              maxValue: 100,
+              minValue: 10,
+              onChanged: (int value) {},
+              value: 50,
+            ),
+          ],
+        ),
+*/

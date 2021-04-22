@@ -1,4 +1,4 @@
-import 'package:clean_template/core/init/network/interface/IErrorModel.dart';
+import 'IErrorModel.dart';
 
 /// Response model coming from api
 abstract class IResponseModel<T> {

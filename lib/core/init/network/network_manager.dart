@@ -1,5 +1,5 @@
-import 'package:clean_template/core/init/network/ICoreDio.dart';
-import 'package:clean_template/core/init/network/core_dio.dart';
+import 'ICoreDio.dart';
+import 'core_dio.dart';
 import 'package:dio/dio.dart';
 
 class NetworkManager {

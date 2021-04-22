@@ -1,0 +1,11 @@
+{
+    "welcome": "Welcome to Clean Template",
+    "home": {
+        "profile": {
+            "title": "profile"
+        },
+        "explore": {
+            "title": "Todos"
+        }
+    }
+}

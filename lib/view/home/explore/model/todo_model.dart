@@ -1,4 +1,4 @@
-import 'package:clean_template/core/init/network/interface/INetworkModel.dart';
+import '../../../../core/init/network/interface/INetworkModel.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'todo_model.g.dart';

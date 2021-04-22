@@ -1,5 +1,5 @@
-import 'package:clean_template/core/init/network/interface/IErrorModel.dart';
-import 'package:clean_template/core/init/network/interface/INetworkModel.dart';
+import '../interface/IErrorModel.dart';
+import '../interface/INetworkModel.dart';
 
 class ErrorModel<T> implements IErrorModel {
   @override
