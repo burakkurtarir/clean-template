@@ -1,4 +1,5 @@
 import 'package:clean_template/core/constants/app/application_constants.dart';
+import 'package:clean_template/core/init/cache/locale_manager.dart';
 import 'package:clean_template/core/init/lang/language_manager.dart';
 import 'package:easy_localization/easy_localization.dart';
 
@@ -13,6 +14,7 @@ import 'core/init/notifier/application_provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await LocaleManager.prefrencesInit();
 
   await EasyLocalization.ensureInitialized();
 
