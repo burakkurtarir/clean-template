@@ -1,3 +1,4 @@
+import 'package:clean_template/view/home_tab/main/view/home_main_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +18,8 @@ class NavigationRoute {
         return normalNavigate(ProfileView());
       case NavigationConstants.EXPLORE_VIEW:
         return normalNavigate(ExploreView());
+      case NavigationConstants.HOME_MAIN_VIEW:
+        return normalNavigate(HomeMainView());
       default:
         return normalNavigate(NavigationNotFoundWidget());
     }

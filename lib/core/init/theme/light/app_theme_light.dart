@@ -42,6 +42,7 @@ class AppThemeLight extends AppTheme with ILightTheme {
               ),
             ),
         tabBarTheme: tabBarTheme,
+        splashColor: Colors.black,
       );
 
   TabBarTheme get tabBarTheme {
